@@ -170,3 +170,4 @@ Last, we thank these authors for sharing their ideas and source code:
 - [SenFormer](https://github.com/WalBouss/SenFormer)
 - [M2MRF](https://github.com/haotianll/M2MRF)
 
+This manuscript was supported in part by the National Key Research and Development Program of China under Grant 2021YFF1201202, the Natural Science Foundation of Hunan Province under Grant 2024JJ5444 and 2023JJ30699, and the Key Research and Development Program of Hunan Province under Grant 2023SK2029. The authors wish to acknowledge High Performance Computing Center of Central South University for computational resources.
