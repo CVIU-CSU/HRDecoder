@@ -6,4 +6,6 @@ from .lesion_encoder_decoder import LesionEncoderDecoder
 
 from .HRDecoder import HRDecoder,EfficientHRDecoder
 
-__all__ = ['BaseSegmentor', 'EncoderDecoder']
+__all__ = ['BaseSegmentor', 'EncoderDecoder'
+    'LesionEncoderDecoder', 'HRDecoder', 'EfficientHRDecoder'
+]
