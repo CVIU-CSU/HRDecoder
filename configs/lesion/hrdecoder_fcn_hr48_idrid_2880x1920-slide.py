@@ -29,6 +29,7 @@ data=dict(
     samples_per_gpu=1,
     workers_per_gpu=1,
 )
+seed = 2
 runner = dict(type='IterBasedRunner', max_iters=20000)
 checkpoint_config = dict(by_epoch=False, interval=1000, max_keep_ckpts=1)
 evaluation = dict(interval=4000, 
