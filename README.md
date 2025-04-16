@@ -15,6 +15,7 @@ conda create -n hrdecoder python=3.8.5
 conda activate hrdecoder
 
 pip install -r requirements.txt
+chmod u+x tools/*
 ```
 
 ### Datasets
@@ -157,8 +158,26 @@ The trained model will be stored to `work_dirs/`.
 
 In this project, we supply two version of implemention: HRDecoder and Efficient-HRDecoder.
 
-HRDecoder is the version utilized for presenting the results in our paper. While Efficient-HRDecoder is an improved version of HRDecoder to further reduce computational overhead and memory usage. We simply compress the dimension of the extracted features using a 1x1 convolutional layer right after the backbone. This helps save a lot of memory. The compression operation can be replaced with various multi-scale feature fusion methods, such as FPN, CATNet, APPNet, CARAFE++ and so on. We do not focus on this part but on the later HR representation learning module and HR fusion module, so we simply use upsampling and concat in HRDecoder, or use a 1x1 conv in Efficient-HRDecoder. Our design is orthogonal to these methods, so it is easy to apply to other existing methods. HRDecoder can not only save costs but also enhance performance.
+HRDecoder is the version utilized for presenting the results in our paper. While Efficient-HRDecoder is an improved version of HRDecoder to further reduce computational overhead and memory usage. We simply compress the dimension of the extracted features using a 1x1 convolutional layer right after the backbone. This helps save a lot of memory. The compression operation can be replaced with various multi-scale feature fusion methods, such as FPN, CATNet, APPNet, CARAFE++ and so on. We do not focus on this part but on the later HR representation learning module and HR fusion module, so we simply use upsampling and concat in HRDecoder, or use a 1x1 conv in Efficient-HRDecoder. 
 
+### Models and Evaluation
+
+We evaluate our method out IDRiD and DDR test set.
+
+| Dataset  | mIoU | mAUPR | download                                                                                                                                                       |
+| ------- | :----: | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IDRiD |  52.20 | 71.34 | [config](https://drive.google.com/file/d/1grh80iE_zHQGo9JVEJIFhVKpF2C9N8ax/view?usp=drive_link); [model](https://drive.google.com/file/d/1tRBNqpbFwnNBGQBMw8UYL8sjJzWlI3O9/view?usp=drive_link) |
+| DDR |  32.24 | 49.24 | [config](https://drive.google.com/file/d/1fC8hB4CkUeaXEiY2KtbNJHwUT5HRQknP/view?usp=drive_link); [model](https://drive.google.com/file/d/1CBTHOtxToHQ13H4SZIUBZTwX0zwmIduh/view?usp=drive_link) |
+
+For calculating FLOPs and FPs, you can use the following commands:
+```
+# calculate FLOPs
+CUDA_VISIBLE_DEVICES=0 python tools/get_flops.py configs/lesion/hrdecoder_fcn_hr48_ddr_2048.py
+
+# Calculate FPs
+CUDA_VISIBLE_DEVICES=0 python tools/get_fps.py configs/lesion/hrdecoder_fcn_hr48_ddr_2048.py
+```
+Typically, we calculate FPs on DDR dataset.
 
 ### Acknowledgements
 Last, we thank these authors for sharing their ideas and source code:
