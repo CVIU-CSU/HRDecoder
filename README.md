@@ -166,8 +166,8 @@ We evaluate our method out IDRiD and DDR test set.
 
 | Dataset  | mIoU | mAUPR | download                                                                                                                                                       |
 | ------- | :----: | :----: | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IDRiD |  52.20 | 71.34 | [config](https://drive.google.com/file/d/1grh80iE_zHQGo9JVEJIFhVKpF2C9N8ax/view?usp=drive_link); [model](https://drive.google.com/file/d/1tRBNqpbFwnNBGQBMw8UYL8sjJzWlI3O9/view?usp=drive_link) |
-| DDR |  32.24 | 49.24 | [config](https://drive.google.com/file/d/1fC8hB4CkUeaXEiY2KtbNJHwUT5HRQknP/view?usp=drive_link); [model](https://drive.google.com/file/d/1CBTHOtxToHQ13H4SZIUBZTwX0zwmIduh/view?usp=drive_link) |
+| IDRiD |  52.20 | 71.34 | [config](https://github.com/CVIU-CSU/HRDecoder/blob/main/configs/lesion/hrdecoder_fcn_hr48_idrid_2880x1920-slide.py); [model](https://drive.google.com/file/d/1tRBNqpbFwnNBGQBMw8UYL8sjJzWlI3O9/view?usp=drive_link) |
+| DDR |  32.24 | 49.24 | [config](https://github.com/CVIU-CSU/HRDecoder/blob/main/configs/lesion/hrdecoder_fcn_hr48_ddr_2048.py); [model](https://drive.google.com/file/d/1CBTHOtxToHQ13H4SZIUBZTwX0zwmIduh/view?usp=drive_link) |
 
 For calculating FLOPs and FPs, you can use the following commands:
 ```
